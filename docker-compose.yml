@@ -1,0 +1,24 @@
+version: "3"
+services:
+  server:
+    image: backendemp
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/employee?useSSL=false
+    networks:
+      - springnetwork
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:5.7
+    networks:
+      - springnetwork
+    environment:
+      - MYSQL_ROOT_PASSWORD=Farah@99
+      - MYSQL_DATABASE=employee
+
+
+networks:
+        springnetwork:
