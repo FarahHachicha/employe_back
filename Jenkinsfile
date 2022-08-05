@@ -81,7 +81,7 @@ pipeline{
               stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "mysql-app.yaml", kubeconfigId: "kubernetes")
+          kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kubernetes")
         }
       }
     }
