@@ -81,7 +81,9 @@ pipeline{
               stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
+               withKubeConfig([credentialsId: 'kube']) {
+                   sh 'kubectl apply -f mysql-deploy.yaml'
+    }
         }
       }
     }
