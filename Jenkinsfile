@@ -22,12 +22,7 @@ pipeline{
                             sh 'mvn test'
                             echo " UNit test success"
                      }
-                     post{
-                           always{
-                                  junit 'target/failsafe-reports/*.xml'
-                            }
-                     }
-
+    
 
               }
               stage ('Integration Test'){
