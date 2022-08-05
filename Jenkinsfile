@@ -81,8 +81,11 @@ pipeline{
               stage('Deploy App') {
       steps {
         script {
-               withKubeConfig([credentialsId: 'kube']) {
+               withKubeConfig([credentialsId: 'kube', serverUrl: 'https://192.168.64.2:8443]) {
                    sh 'kubectl apply -f mysql-deploy.yaml'
+                     //  sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+                       //sh 'chmod u+x ./kubectl'  
+                       //sh './kubectl get pods'
     }
         }
       }
