@@ -59,14 +59,14 @@ pipeline{
 
               }
          
-             /* stage('Build image'){
+             stage('Build image'){
                      steps{
                             script{
                                    dockerImage = docker.build dockerimagename
                             }
                      }
-              }*/
-         /*     stage ('Pushing Image'){
+              }
+             stage ('Pushing Image'){
                      environment{
                             registryCredential = 'dockerHub'
                      }
@@ -77,7 +77,7 @@ pipeline{
                                    }
                             }
                      }
-              }*/
+              }
               stage('Deploy Mysql') {
       steps {
         script {
