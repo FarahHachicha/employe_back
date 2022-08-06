@@ -81,10 +81,13 @@ pipeline{
               stage('Deploy App') {
       steps {
         script {
-               withKubeConfig([credentialsId: 'kube', serverUrl: 'https://192.168.64.2:8443']) {
-                   sh 'kubectl apply -f mysql-deploy.yaml'
+             //  withKubeConfig([credentialsId: 'kube', serverUrl: 'https://192.168.64.2:8443']) {
+                 //  sh 'kubectl apply -f mysql-deploy.yaml'
                   
-    }
+  //  }
+             
+          kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
+   
         }
       }
     }
