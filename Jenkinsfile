@@ -70,8 +70,12 @@ pipeline{
                             }
                      }
               }
-           /*  stage ('Pushing Image'){
-                     environment{
+              / stage ('Pushing Image'){
+                     steps{
+                            echo 'push success'
+                     }
+              }
+                    /* environment{
                            registryCredential = 'dockerHub'
                      }
                      steps{
