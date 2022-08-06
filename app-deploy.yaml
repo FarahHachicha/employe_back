@@ -13,13 +13,13 @@ spec:
         app: employeemanager
     spec:
       containers:
-        - name: backend
-          image: backend:0.0.1-SNAPSHOT
+        - name: jenkins
+          image: farahhachicha/jenkins:0.0.1-SNAPSHOT
           ports:
             - containerPort: 8080
           env:   # Setting Environmental Variables
             - name: DB_HOST   # Setting Database host address
-              value: mysqldb
+              value: mysql
             - name: DB_NAME  # Setting Database name
               value: employee
             - name: DB_USERNAME  # Setting Database username
