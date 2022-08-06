@@ -1,9 +1,9 @@
 pipeline{
        environment{
-               
+              registryCredential = 'dockerHub'
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-              dockerimagename = "farahhachicha/jenkins:0.0.1-SNAPSHOT"
-              dockerImage = ""
+              dockerimagename = 'farahhachicha/jenkins:0.0.1-SNAPSHOT'
+              dockerImage = ''
        }
        agent any
 
@@ -70,7 +70,7 @@ pipeline{
                             }
                      }
               }
-             stage ('Pushing Image'){
+           /*  stage ('Pushing Image'){
                      environment{
                            registryCredential = 'dockerHub'
                      }
@@ -81,7 +81,7 @@ pipeline{
                                    }
                             }
                      }
-              }
+              }*/
               stage('Deploy Mysql') {
       steps {
         script {
