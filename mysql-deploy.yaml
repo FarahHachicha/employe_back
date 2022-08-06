@@ -33,7 +33,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysqldb
+  name: mysql
   labels:
     app: mysql
     tier: database
