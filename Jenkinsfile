@@ -1,6 +1,6 @@
 pipeline{
        environment{
-              DOCKERHUB_CREDENTIALS=credentials('dockerHub')
+             // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
               dockerimagename = "farahhachicha/jenkins"
               dockerImage = ""
        }
@@ -63,12 +63,12 @@ pipeline{
              stage('Build image'){
                      steps{
                             script{
-                                  // dockerImage = docker.build dockerimagename
-                                    sh 'docker build -t farahhachicha/devops-integration .'
+                                   dockerImage = docker.build dockerimagename
+                                   // sh 'docker build -t farahhachicha/devops-integration .'
                             }
                      }
               }
-             stage ('Pushing Image'){
+       /*      stage ('Pushing Image'){
                      environment{
                             registryCredential = 'dockerHub'
                      }
@@ -79,7 +79,7 @@ pipeline{
                                    }
                             }
                      }
-              }
+              }*/
               stage('Deploy Mysql') {
       steps {
         script {
