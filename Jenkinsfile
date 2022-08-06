@@ -59,14 +59,14 @@ pipeline{
 
               }
          
-              stage('Build image'){
+             /* stage('Build image'){
                      steps{
                             script{
                                    dockerImage = docker.build dockerimagename
                             }
                      }
-              }
-              stage ('Pushing Image'){
+              }*/
+         /*     stage ('Pushing Image'){
                      environment{
                             registryCredential = 'dockerHub'
                      }
@@ -77,8 +77,8 @@ pipeline{
                                    }
                             }
                      }
-              }
-              stage('Deploy App') {
+              }*/
+              stage('Deploy Mysql') {
       steps {
         script {
              //  withKubeConfig([credentialsId: 'kube', serverUrl: 'https://192.168.64.2:8443']) {
