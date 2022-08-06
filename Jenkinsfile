@@ -1,5 +1,6 @@
 pipeline{
        environment{
+              DOCKERHUB_CREDENTIALS=credentials('dockerHub')
               dockerimagename = "farahhachicha/jenkins"
               dockerImage = ""
        }
