@@ -63,6 +63,7 @@ pipeline{
                      steps{
                             script{
                                    dockerImage = docker.build dockerimagename
+                                  //  sh 'docker build -t farahhachicha/devops-integration .'
                             }
                      }
               }
