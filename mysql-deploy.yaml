@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysqldb
+  name: mysql
   labels:
     app: mysql
     tier: database
@@ -50,7 +50,7 @@ spec:
         tier: database
     spec:
       containers:
-        - name: mysqldb
+        - name: mysql
           image: mysql:8
           env:
             - name: MYSQL_ROOT_PASSWORD
