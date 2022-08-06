@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employeemanageravecJenkins
+  name: employeemanageravecjenkins
 spec:
   selector:
     matchLabels:
-      app: employeemanageravecJenkins
+      app: employeemanageravecjenkins
   replicas: 3
   template:
     metadata:
       labels:
-        app: employeemanageravecJenkins
+        app: employeemanageravecjenkins
     spec:
       containers:
         - name: jenkins
@@ -30,12 +30,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: employee-service-avecJenkins
+  name: employee-service-avecjenkins
 spec:
   ports:
     - protocol: "TCP"
       port: 8080    # Port inside the cluster
       targetPort:   # Port exposed to the outside
   selector:
-    app: employeemanageravecJenkins
+    app: employeemanageravecjenkins
   type: NodePort
