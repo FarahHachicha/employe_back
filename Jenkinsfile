@@ -70,7 +70,7 @@ pipeline{
                             }
                      }
               }
-              / stage ('Pushing Image'){
+               stage ('Pushing Image'){
                      steps{
                             echo 'push success'
                      }
