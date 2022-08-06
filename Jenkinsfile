@@ -63,7 +63,7 @@ pipeline{
              stage('Build image'){
                      steps{
                             script{
-                                   sh 'chmod 777 /var/run/docker.sock'
+                                   sh 'eval $(minikube docker-env)'
                                    dockerImage = docker.build dockerimagename
                                    // sh 'docker build -t farahhachicha/devops-integration .'
                             }
