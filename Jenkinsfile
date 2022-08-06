@@ -2,7 +2,7 @@ pipeline{
        environment{
                
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-              dockerimagename = "farahhachicha/jenkins"
+              dockerimagename = "farahhachicha/jenkins:0.0.1-SNAPSHOT"
               dockerImage = ""
        }
        agent any
