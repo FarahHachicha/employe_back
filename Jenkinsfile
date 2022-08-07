@@ -71,21 +71,20 @@ pipeline{
                      }
               }
                stage ('Pushing Image'){
-                     steps{
-                            echo 'push success'
-                     }
-              }
-                    /* environment{
+                 
+          
+                     environment{
                            registryCredential = 'dockerHub'
                      }
                      steps{
                             script{
-                                   docker.withRegistry ('http://registry.hub.docker.com', registryCredential){
-                                          dockerImage.push("0.0.1-SNAPSHOT")
+                                   docker.withRegistry (registryCredential){
+                                      //    dockerImage.push("0.0.1-SNAPSHOT")
+                                          sh 'docker push farahhachicha/devops-integration'
                                    }
                             }
                      }
-              }*/
+              }
               stage('Deploy Mysql') {
       steps {
         script {
