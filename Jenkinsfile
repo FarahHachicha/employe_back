@@ -94,9 +94,9 @@ pipeline{
               stage('Deploy Mysql') {
       steps {
         script {
-               sh 'kubectl apply -f mysql-deploy.yaml'
+              
             // echo "okk"
-          //kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
+          kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
    
         }
       }
@@ -104,9 +104,9 @@ pipeline{
                       stage('Deploy Application') {
       steps {
         script {
-               echo "ok"
              
-         // kubernetesDeploy(configs: "app-deploy.yaml", kubeconfigId: "kube")
+             
+         kubernetesDeploy(configs: "app-deploy.yaml", kubeconfigId: "kube")
    
         }
       }
