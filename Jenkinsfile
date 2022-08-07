@@ -86,10 +86,16 @@ pipeline{
                             }
                      }
               }
+              stage('Pull image){
+                    steps{
+                           script{
+                    sh 'docker pull farahhachicha/devops-integration'
+                           }}}
               stage('Deploy Mysql') {
       steps {
         script {
-             echo "okk"
+               sh 'kubectl apply -f mysql-deploy.yaml'
+            // echo "okk"
           //kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
    
         }
