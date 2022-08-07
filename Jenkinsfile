@@ -86,7 +86,7 @@ pipeline{
                             }
                      }
               }
-              stage('Pull image){
+              stage('Pull image'){
                     steps{
                            script{
                     sh 'docker pull farahhachicha/devops-integration'
