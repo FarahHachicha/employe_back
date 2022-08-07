@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: employeemanageravecjenkins
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: jenkins
-          image: farahhachicha/jenkins:0.0.1-SNAPSHOT
+          image: farahhachicha/devops-integration
           ports:
             - containerPort: 8080
           env:   # Setting Environmental Variables
