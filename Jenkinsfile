@@ -65,8 +65,8 @@ pipeline{
                      steps{
                             script{
                                  //  sh ' sudo chmod 777 /var/run/docker.sock'
-                                   dockerImage = docker.build dockerimagename
-                                   // sh 'docker build -t farahhachicha/devops-integration .'
+                                   //dockerImage = docker.build dockerimagename
+                                    sh 'docker build -t farahhachicha/devops-integration .'
                             }
                      }
               }
@@ -89,8 +89,8 @@ pipeline{
               stage('Deploy Mysql') {
       steps {
         script {
-             
-          kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
+             echo "okk"
+          //kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
    
         }
       }
@@ -98,8 +98,9 @@ pipeline{
                       stage('Deploy Application') {
       steps {
         script {
+               echo "ok"
              
-          kubernetesDeploy(configs: "app-deploy.yaml", kubeconfigId: "kube")
+         // kubernetesDeploy(configs: "app-deploy.yaml", kubeconfigId: "kube")
    
         }
       }
