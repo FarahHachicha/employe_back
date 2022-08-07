@@ -78,10 +78,11 @@ pipeline{
                      }
                      steps{
                             script{
-                                   docker.withRegistry (registryCredential){
+                                  // docker.withRegistry (registryCredential){
                                       //    dockerImage.push("0.0.1-SNAPSHOT")
+                                          sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
                                           sh 'docker push farahhachicha/devops-integration'
-                                   }
+                                //   }
                             }
                      }
               }
