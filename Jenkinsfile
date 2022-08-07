@@ -27,7 +27,7 @@ pipeline{
     
 
               }
-            /*  stage ('Integration Test'){
+     stage ('Integration Test'){
                      steps {
                             sh 'mvn verify -Dsurefire.skip=true'
                             echo " Integration test success"
@@ -43,7 +43,7 @@ pipeline{
 
                             }
                      }
-              }*/
+              }
               stage ('SonarQube'){
 
 
