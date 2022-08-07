@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: jenkins
-          image: farahhachicha/devops-integration
+          image: farahhachicha/jenkins:0.0.1-SNAPSHOT
           ports:
             - containerPort: 8080
           env:   # Setting Environmental Variables
