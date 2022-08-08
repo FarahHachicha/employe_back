@@ -50,10 +50,13 @@ pipeline{
 
                      steps{
 
-              withSonarQubeEnv('sonarqube'){
+              withSonarQubeEnv(){
                   
                  //   echo "sonar"
-                   sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=6be0f04e6c06ea44b7047838d04ea07882f576d5'
+                  // sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=6be0f04e6c06ea44b7047838d04ea07882f576d5'
+               
+                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=demoapp-project"
+    
         
 
               }
