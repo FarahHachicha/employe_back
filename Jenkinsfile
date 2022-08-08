@@ -2,7 +2,7 @@ pipeline{
        environment{
               registryCredential = 'dockerHub'
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-              dockerimagename = 'farahhachicha/devops-integration:0.0.1-SNAPSHOT'
+              dockerimagename = 'devops-integration:0.0.1-SNAPSHOT'
               dockerImage = ''
        }
        agent any
