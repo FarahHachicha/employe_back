@@ -66,7 +66,7 @@ pipeline{
                             script{
                                  //  sh ' sudo chmod 777 /var/run/docker.sock'
                                    //dockerImage = docker.build dockerimagename
-                                    sh 'docker build -t farahhachicha/devops-integration .'
+                                    sh 'docker build -t farahhachicha/devops-integration:0.0.1-SNAPSHOT .'
                             }
                      }
               }
@@ -81,7 +81,7 @@ pipeline{
                                   // docker.withRegistry (registryCredential){
                                       //    dockerImage.push("0.0.1-SNAPSHOT")
                                           sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
-                                          sh 'docker push farahhachicha/devops-integration'
+                                          sh 'docker push farahhachicha/devops-integration:0.0.1-SNAPSHOT '
                                 //   }
                             }
                      }
@@ -89,7 +89,7 @@ pipeline{
               stage('Pull image'){
                     steps{
                            script{
-                    sh 'docker pull farahhachicha/devops-integration'
+                    sh 'docker pull farahhachicha/devops-integration:0.0.1-SNAPSHOT'
                            }}}
               stage('Deploy Mysql') {
       steps {
