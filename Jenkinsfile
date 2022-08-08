@@ -2,7 +2,7 @@ pipeline{
        environment{
               registryCredential = 'dockerHub'
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-              dockerimagename = 'farahhachicha/jenkins:0.0.1-SNAPSHOT'
+              dockerimagename = 'farahhachicha/devops-integration:0.0.1-SNAPSHOT'
               dockerImage = ''
        }
        agent any
@@ -65,7 +65,7 @@ pipeline{
                      steps{
                             script{
                                  //  sh ' sudo chmod 777 /var/run/docker.sock'
-                                   dockerImage = docker.build farahhachicha/devops-integration:0.0.1-SNAPSHOT
+                                   dockerImage = docker.build dockerimagename
                                    // sh 'docker build -t farahhachicha/devops-integration:0.0.1-SNAPSHOT .'
                             }
                      }
