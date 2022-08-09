@@ -2,7 +2,7 @@ pipeline{
        environment{
               registryCredential = 'dockerHub'
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-             dockerimagename = 'jenkins'
+             dockerimagename = 'farahhachicha/jenkins'
              dockerImage = ''
        }
        agent any
