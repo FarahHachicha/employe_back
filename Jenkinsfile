@@ -2,7 +2,7 @@ pipeline{
        environment{
               registryCredential = 'dockerHub'
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-             dockerimagename = 'jenkins:0.0.1-SNAPSHOT'
+             dockerimagename = 'jenkins'
              dockerImage = ''
        }
        agent any
@@ -83,7 +83,7 @@ pipeline{
                      steps{
                             script{
                                  docker.withRegistry (registryCredential){
-                                        dockerImage.push("0.0.1-SNAPSHOT")
+                                        dockerImage.push("latest")
                                          // sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
                                         //  sh 'docker push farahhachicha/jenkins '
                                   }
