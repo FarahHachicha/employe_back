@@ -2,8 +2,8 @@ pipeline{
        environment{
               registryCredential = 'dockerHub'
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-         //     dockerimagename = 'jenkins:0.0.1-SNAPSHOT'
-              dockerImage = ''
+             dockerimagename = 'jenkins:0.0.1-SNAPSHOT'
+             dockerImage = ''
        }
        agent any
 
@@ -22,7 +22,7 @@ pipeline{
               stage('Unit Test'){
                      steps{
                             sh 'mvn test'
-                            echo " UNit test success"
+                            echo " Unit test success"
                      }
     
 
@@ -69,8 +69,8 @@ pipeline{
                      steps{
                             script{
                                
-                                 //  dockerImage = docker.build dockerimagename
-                                    sh 'docker build -t farahhachicha/jenkins .'
+                                   dockerImage = docker.build dockerimagename
+                                    //sh 'docker build -t farahhachicha/jenkins .'
                             }
                      }
               }
@@ -82,15 +82,15 @@ pipeline{
                      }
                      steps{
                             script{
-                                // docker.withRegistry (registryCredential){
-                                    //    dockerImage.push("0.0.1-SNAPSHOT")
-                                          sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
-                                          sh 'docker push farahhachicha/jenkins '
-                                //  }
+                                 docker.withRegistry (registryCredential){
+                                        dockerImage.push("0.0.1-SNAPSHOT")
+                                         // sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
+                                        //  sh 'docker push farahhachicha/jenkins '
+                                  }
                             }
                      }
               }
-              stage('Pull image'){
+              /*stage('Pull image'){
                     steps{
                            script{
                     sh 'docker pull farahhachicha/jenkins:0.0.1-SNAPSHOT'
@@ -112,7 +112,7 @@ pipeline{
    
         }
       }
-    }
+    }*/
               
 
        }
