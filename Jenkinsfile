@@ -34,7 +34,7 @@ pipeline{
                                    success{
                                           stash(name : 'artifact' , includes :'target/*.jar')
                                           stash(name : 'pom' , includes :'pom.xml')
-                                          archiveArtifacts 'target/*.jar
+                                          archiveArtifacts 'target/*.jar'
                                    }
                                    
                             }
