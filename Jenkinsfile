@@ -82,7 +82,7 @@ pipeline{
                      }
                      steps{
                             script{
-                                 docker.withRegistry (registryCredential){
+                                 docker.withRegistry ('http://registry.hub.docker.com',registryCredential){
                                         dockerImage.push("latest")
                                          // sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
                                         //  sh 'docker push farahhachicha/jenkins '
