@@ -49,14 +49,19 @@ pipeline{
               }
               stage ('Build Image'){
                      steps{
-                          dockerImage = docker.build dockerimagename
+                            script{
+                                   dockerImage = docker.build dockerimagename
+                            }
+                          
                      }
                             
               }
               stage ('Pushing Image') {
                      steps{
-                            docker.withRegistry ('http://registry.hub.docker.com',registryCredential){
-                                    dockerImage.push("latest")
+                            script{
+                                   docker.withRegistry ('http://registry.hub.docker.com',registryCredential){
+                                          dockerImage.push("latest")
+                                   }
                             }
                      }
                             
