@@ -2,7 +2,7 @@ pipeline{
        environment{
               registryCredential = 'dockerHub'
              // DOCKERHUB_CREDENTIALS=credentials('dockerHub')
-              dockerimagename = 'devops-integration:0.0.1-SNAPSHOT'
+         //     dockerimagename = 'jenkins:0.0.1-SNAPSHOT'
               dockerImage = ''
        }
        agent any
@@ -70,7 +70,7 @@ pipeline{
                             script{
                                
                                  //  dockerImage = docker.build dockerimagename
-                                    sh 'docker build -t farahhachicha/devops-integration:0.0.1-SNAPSHOT .'
+                                    sh 'docker build -t farahhachicha/jenkins .'
                             }
                      }
               }
@@ -85,7 +85,7 @@ pipeline{
                                 // docker.withRegistry (registryCredential){
                                     //    dockerImage.push("0.0.1-SNAPSHOT")
                                           sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
-                                          sh 'docker push farahhachicha/devops-integration:0.0.1-SNAPSHOT '
+                                          sh 'docker push farahhachicha/jenkins '
                                 //  }
                             }
                      }
@@ -93,13 +93,11 @@ pipeline{
               stage('Pull image'){
                     steps{
                            script{
-                    sh 'docker pull farahhachicha/devops-integration:0.0.1-SNAPSHOT'
+                    sh 'docker pull farahhachicha/jenkins:0.0.1-SNAPSHOT'
                            }}}
               stage('Deploy Mysql') {
       steps {
         script {
-              
-            // echo "okk"
           kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
    
         }
