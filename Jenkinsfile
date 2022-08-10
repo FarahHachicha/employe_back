@@ -70,5 +70,27 @@ pipeline{
                      }
                             
               }
+              stage ('Pull Image'){
+                     steps{
+                            script{
+                                   sh ' docker pull farahhachicha/jenkins '
+                            }
+                     }
+              }
+              stage ('Deploy MySQL') {
+                     steps{
+                            script {
+                                   kubernetesDeploy(configs: "mysql-deploy.yaml", kubeconfigId: "kube")
+                            }
+                     }
+              }
+              stage ('Deploy Application'){
+                     steps{
+                            script {
+                                    kubernetesDeploy(configs: "app-deploy.yaml", kubeconfigId: "kube")
+
+                            }
+                     }
+              }
        }
 }
