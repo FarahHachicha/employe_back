@@ -50,7 +50,8 @@ pipeline{
               stage ('Build Image'){
                      steps{
                             script{
-                                   dockerImage = docker.build dockerimagename
+                                  // dockerImage = docker.build dockerimagename
+                                   sh 'docker build -t farahhachicha/jenkins .'
                             }
                           
                      }
@@ -59,9 +60,11 @@ pipeline{
               stage ('Pushing Image') {
                      steps{
                             script{
-                                   docker.withRegistry ('http://registry.hub.docker.com/',registryCredential){
-                                          dockerImage.push("latest")
-                                   }
+                                   sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
+                                   sh 'docker push farahhachicha/jenkins '
+                                  // docker.withRegistry ('http://registry.hub.docker.com/',registryCredential){
+                                        //  dockerImage.push("latest")
+                                   //}
                             }
                      }
                             
