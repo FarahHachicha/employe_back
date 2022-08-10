@@ -51,7 +51,7 @@ pipeline{
                      steps{
                             script{
                                   // dockerImage = docker.build dockerimagename
-                                   sh 'docker build -t farahhachicha/jenkins .'
+                                   sh 'docker build -t jenkins .'
                             }
                           
                      }
@@ -61,6 +61,7 @@ pipeline{
                      steps{
                             script{
                                    sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
+                                   sh 'docker tag jenkins farahhachicha/jenkins '
                                    sh 'docker push farahhachicha/jenkins '
                                   // docker.withRegistry ('http://registry.hub.docker.com/',registryCredential){
                                         //  dockerImage.push("latest")
