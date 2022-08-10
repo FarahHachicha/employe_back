@@ -65,7 +65,7 @@ pipeline{
                                    sh 'docker push farahhachicha/jenkins '
                                   // docker.withRegistry ('http://registry.hub.docker.com/',registryCredential){
                                         //  dockerImage.push("latest")
-                                   //}
+                                  // //}
                             }
                      }
                             
