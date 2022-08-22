@@ -56,7 +56,7 @@ pipeline{
                             }
                      }
               }
-              stage ('Build Image'){
+              stage ('Build Docker Image'){
                      steps{
                             script{
                                 
@@ -70,7 +70,7 @@ pipeline{
                      steps{
                             script{
                                    sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
-                                   sh 'docker tag jenkins farahhachicha/jenkinsback '
+                                   sh 'docker tag jenkinsback farahhachicha/jenkinsback '
                                    sh 'docker push farahhachicha/jenkinsback '
                                   // docker.withRegistry ('http://registry.hub.docker.com/',registryCredential){
                                         //  dockerImage.push("latest")
