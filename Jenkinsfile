@@ -66,7 +66,7 @@ pipeline{
                      }
                             
               }
-              stage ('Pushing Image') {
+              stage ('Push Docker Image') {
                      steps{
                             script{
                                    sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
