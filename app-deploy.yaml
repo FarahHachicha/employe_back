@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: farahhachicha/jenkinsback:0.0.1-SNAPSHOT
+          image: farahhachicha/jenkinsback
           ports:
             - containerPort: 8080
           env:   # Setting Environmental Variables
