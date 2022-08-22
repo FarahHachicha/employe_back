@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employeemanageravecjenkins
+  name: employeemanager-deployment-avecjenkins
 spec:
   selector:
     matchLabels:
@@ -13,15 +13,15 @@ spec:
         app: employeemanageravecjenkins
     spec:
       containers:
-        - name: jenkins
-          image: farahhachicha/jenkins:0.0.1-SNAPSHOT
+        - name: backend
+          image: farahhachicha/jenkinsback:0.0.1-SNAPSHOT
           ports:
             - containerPort: 8080
           env:   # Setting Environmental Variables
             - name: DB_HOST   # Setting Database host address
               value: mysql
             - name: DB_NAME  # Setting Database name
-              value: employee
+              value: employeeback
             - name: DB_USERNAME  # Setting Database username
               value: root
             - name: DB_PASSWORD # Setting Database password
@@ -35,7 +35,7 @@ spec:
   ports:
     - protocol: "TCP"
       port: 8080    # Port inside the cluster
-      targetPort:   # Port exposed to the outside
+      targetPort:  8080  # Port exposed to the outside
   selector:
     app: employeemanageravecjenkins
   type: NodePort

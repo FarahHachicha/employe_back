@@ -13,6 +13,7 @@ import org.junit.Test;
 
 @SpringBootApplication
 public class EmployeemanagerApplication {
+	@Test
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeemanagerApplication.class, args);
 	}
