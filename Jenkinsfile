@@ -15,7 +15,7 @@ pipeline{
                             echo ' Build success '
                      }
               }
-              stage ('Unit test') {
+            /*  stage ('Unit test') {
                      steps{
                             sh 'mvn test'
                             echo " Unit test success"
@@ -29,8 +29,8 @@ pipeline{
                                    stash(name : 'pom' , includes :'pom.xml')
                                    archiveArtifacts 'target/*.jar'
                             }
-              } 
-              stage ('Integration test') {
+              } }*/
+              stage ('Test') {
                      steps{
                                    
                             sh 'mvn verify -Dsurefire.skip=true'
