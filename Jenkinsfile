@@ -55,8 +55,7 @@ pipeline{
                                         dockerImage.push("latest")
                                 }
                             }
-                     }
-                            
+                     }        
               }
               stage ('Remove Docker Image'){
                      steps{
@@ -77,7 +76,6 @@ pipeline{
                      steps{
                             script {
                                     kubernetesDeploy(configs: "app-deploy.yaml", kubeconfigId: "kube")
-
                             }
                      }
               }
