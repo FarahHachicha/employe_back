@@ -1,7 +1,7 @@
 pipeline{
        environment{
               registryCredential = 'dockerHub'
-              dockerimagename = 'farahhachicha/jenkins'
+              dockerimagename = 'farahhachicha/jenkinsback'
               dockerImage = ''
        }
        agent any 
@@ -15,21 +15,6 @@ pipeline{
                             echo ' Build success '
                      }
               }
-            /*  stage ('Unit test') {
-                     steps{
-                            sh 'mvn test'
-                            echo " Unit test success"
-                     }
-                     post{
-                            always{
-                                   junit (testResults:'target/surefire-reports/*.xml',allowEmptyResults: true)
-                            }
-                            success{
-                                   stash(name : 'artifact' , includes :'target/*.jar')
-                                   stash(name : 'pom' , includes :'pom.xml')
-                                   archiveArtifacts 'target/*.jar'
-                            }
-              } }*/
               stage ('Test') {
                      steps{
                                    
@@ -58,23 +43,17 @@ pipeline{
               }
               stage ('Build Docker Image'){
                      steps{
-                            script{
-                                
-                                   sh 'docker build -t jenkinsback .'
-                            }
-                          
-                     }
-                            
+                            script{ 
+                                dockerImage= docker.build dockerimagename
+                            }           
+                     }                         
               }
               stage ('Push Docker Image') {
                      steps{
                             script{
-                                   sh 'docker login -u farahhachicha -p dckr_pat_DAFLAXhhIzvM8VFy_VwetgStuaA'
-                                   sh 'docker tag jenkinsback farahhachicha/jenkinsback '
-                                   sh 'docker push farahhachicha/jenkinsback '
-                                  // docker.withRegistry ('http://registry.hub.docker.com/',registryCredential){
-                                        //  dockerImage.push("latest")
-                                  // //}
+                                    docker.withRegistry ('http://registry.hub.docker.com/',registryCredential){
+                                        dockerImage.push("latest")
+                                }
                             }
                      }
                             
